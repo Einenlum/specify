@@ -30,6 +30,8 @@ ok 1 - CalculatorSpec: it adds the numbers
 
 To have a nice and pretty output, you can then use a TAP formatter like [faucet](https://www.npmjs.com/package/faucet).
 
+**All specifications should start by "it\_"**
+
 ## Builtin matchers
 
 - `_should_be` (check with `is`)
