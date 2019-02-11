@@ -67,6 +67,12 @@ class CalculatorSpec(ObjectBehavior):
         }
 ```
 
+## Fluent API
+
+All matchers (builtin and custom) are chainable. Example:
+
+`self.add(2, 3)._should_be_a_number()._should_be(5)._should_be_greater_than(3)`
+
 ## TODO
 
 - Add more matchers

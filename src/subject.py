@@ -12,6 +12,8 @@ class Subject:
         if not matcher(self.__value, *args):
             raise Exception(f'Custom matcher "{matcher_name}" failed.')
 
+        return self.__value
+
     def __getattr__(self, attr_name):
         if attr_name.startswith('_should_'):
             matcher_type = attr_name[len('_should_'):]
@@ -20,13 +22,19 @@ class Subject:
             if matcher_type in self.__object_behavior._matchers().keys():
                 matcher = self.__object_behavior._matchers()[matcher_type]
                 def custom_matcher_wrapper(*args):
-                    return self.match_with_custom_matcher(matcher_type, matcher, *args)
+                    return Subject(
+                        self.match_with_custom_matcher(matcher_type, matcher, *args),
+                        self.__object_behavior
+                    )
                 return custom_matcher_wrapper
 
             # builtin matcher
             matcher = get_matcher(matcher_type)
             def checker_wrapper(expected_value):
-                return matcher(self.__value, expected_value)
+                return Subject(
+                    matcher(self.__value, expected_value),
+                    self.__object_behavior
+                )
             return checker_wrapper
 
         def action_wrapper(*args, **kwargs):

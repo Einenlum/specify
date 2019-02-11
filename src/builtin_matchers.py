@@ -2,9 +2,13 @@ def be(value, expected):
     if value is not expected:
         raise Exception(f"Expected {value} to be {expected}")
 
+    return value
+
 def be_like(value, expected):
     if value != expected:
         raise Exception(f"Expected {value} to be like {expected}")
+
+    return value
 
 def get_matcher(type):
     items = {

@@ -8,8 +8,7 @@ class CalculatorSpec(ObjectBehavior):
 
     def it_adds_the_numbers(self):
         self.add(2, 3)._should_be(5)
-        self.add(2, 3)._should_be_a_number()
-        self.add(2, 3)._should_be_greater_than(10)
+        self.add(2, 3)._should_be_a_number()._should_be_greater_than(0)
 
     def _matchers(self):
         def be_a_number(value, *args):
