@@ -35,6 +35,38 @@ To have a nice and pretty output, you can then use a TAP formatter like [faucet]
 - `_should_be` (check with `is`)
 - `_should_be_like` (check with `==`)
 
+## Custom matchers
+
+You can implement a `_matchers` function in your spec, to add custom matchers.
+
+The key of the matcher is left trimmed by `should_` and the first argument
+passed to your function is the value itself.
+
+If you return false, the test will fail.
+
+Here is an example:
+
+```python
+class CalculatorSpec(ObjectBehavior):
+    # ...
+
+    def it_adds_the_numbers(self):
+        self.add(2, 3)._should_be_a_number()
+        self.add(2, 3)._should_be_greater_than(10)
+
+    def _matchers(self):
+        def be_a_number(value, *args):
+            return isinstance(value, int)
+
+        def be_greater_than(value, expected_value):
+            return value > expected_value
+
+        return {
+            'be_a_number': be_a_number,
+            'be_greater_than': be_greater_than
+        }
+```
+
 ## TODO
 
 - Add more matchers

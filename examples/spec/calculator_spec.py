@@ -8,3 +8,17 @@ class CalculatorSpec(ObjectBehavior):
 
     def it_adds_the_numbers(self):
         self.add(2, 3)._should_be(5)
+        self.add(2, 3)._should_be_a_number()
+        self.add(2, 3)._should_be_greater_than(10)
+
+    def _matchers(self):
+        def be_a_number(value, *args):
+            return isinstance(value, int)
+
+        def be_greater_than(value, expected_value):
+            return value > expected_value
+
+        return {
+            'be_a_number': be_a_number,
+            'be_greater_than': be_greater_than
+        }
