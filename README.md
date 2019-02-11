@@ -28,6 +28,11 @@ TAP version 13
 ok 1 - CalculatorSpec: it adds the numbers
 ```
 
+## Builtin matchers
+
+- `_should_be` (check with `is`)
+- `_should_be_like` (check with `==`)
+
 To have a nice and pretty output, you can then use a TAP formatter like [faucet](https://www.npmjs.com/package/faucet).
 
 ## TODO
