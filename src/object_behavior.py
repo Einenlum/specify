@@ -12,7 +12,6 @@ class ObjectBehavior:
         return self.__obj
 
     def __getattr__(self, attr_name):
-        print(f'Try to access {attr_name}')
         def wrapper(*args, **kwargs):
             return getattr(self.__obj, attr_name)(*args, **kwargs)
 
