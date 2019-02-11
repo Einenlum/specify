@@ -35,3 +35,4 @@ To have a nice and pretty output, you can then use a TAP formatter like [faucet]
 - Add more matchers
 - Add prophecy behavior to easily mock collaborators
 - Publish as a package
+- Make the tap output a stream as the spec say
