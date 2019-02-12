@@ -115,6 +115,7 @@ class DisplayerSpec(ObjectBehavior):
         self._be_constructed_with(self.__calculator._reveal())
 
     def it_displays_addition(self):
+        self.__calculator.add(2, 3)._should_be_called()
         self.__calculator.add(2, 3)._will_return(5)
         self.display_addition(2, 3)._should_be_like('2 + 3 = 5')
 ```
@@ -122,8 +123,8 @@ class DisplayerSpec(ObjectBehavior):
 ## TODO
 
 - Add more matchers
-- Prophepy: add a way to check prophecies (should_be_called)
 - Publish as a package
 - Make the tap output a stream as the spec say
 - Make better exceptions
 - Externalize prophepy
+- Add docs in methods
