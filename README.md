@@ -121,3 +121,5 @@ class DisplayerSpec(ObjectBehavior):
 - Prophepy: add a way to check prophecies (should_be_called)
 - Publish as a package
 - Make the tap output a stream as the spec say
+- Make better exceptions
+- Externalize prophepy
