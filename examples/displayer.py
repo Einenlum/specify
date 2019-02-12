@@ -1,6 +1,9 @@
 from .calculator import Calculator
 
 class Displayer:
+    '''
+    A really simple class to give examples to spec
+    '''
     def __init__(self, calculator: Calculator):
         self.calculator = calculator
 

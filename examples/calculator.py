@@ -1,4 +1,7 @@
 class Calculator:
+    '''
+    A really simple class to give examples to spec
+    '''
     def __init__(self, name, **kwargs):
         self.name = name
         self.values = kwargs

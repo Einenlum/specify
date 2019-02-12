@@ -2,20 +2,38 @@ from .builtin_matchers import get_matcher
 from .exceptions import CustomMatcherError
 
 class Subject:
+    '''
+    This class represents the specced object.
+    '''
     def __init__(self, value, object_behavior):
+        '''
+        It is instanciated with the real object, and the spec
+        '''
         self.__value = value
         self.__object_behavior = object_behavior
 
     def _get_value(self):
+        '''
+        Get the real specced object
+        '''
         return self.__value
 
     def match_with_custom_matcher(self, matcher_name, matcher, *args):
+        '''
+        Launch a test against a custom matcher and raise a CustomMatcherError
+        if it fails
+        '''
         if not matcher(self.__value, *args):
             raise CustomMatcherError(f'Custom matcher "{matcher_name}" failed.')
 
         return self.__value
 
     def __getattr__(self, attr_name):
+        '''
+        If the method is a _should_ one, it will try to find a matcher
+        (builtin or custom one). If not, it will executes the action
+        on the internal specced object and return a new Subject instance.
+        '''
         if attr_name.startswith('_should_'):
             matcher_type = attr_name[len('_should_'):]
 

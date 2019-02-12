@@ -126,4 +126,3 @@ class DisplayerSpec(ObjectBehavior):
 - Publish as a package
 - Make the tap output a stream as the spec say
 - Externalize prophepy
-- Add docs in methods
