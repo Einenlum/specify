@@ -75,9 +75,49 @@ All matchers (builtin and custom) are chainable. Example:
 
 `self.add(2, 3)._should_be_a_number()._should_be(5)._should_be_greater_than(3)`
 
+## Mocks
+
+Thanks to `prophepy` (did you get the pun with `prophecy`? Hoho), you can
+easily mock things in a [Prophecy](https://github.com/phpspec/prophecy) way.
+
+Given this `Displayer` class:
+
+```python
+from .calculator import Calculator
+
+class Displayer:
+    def __init__(self, calculator: Calculator):
+        self.calculator = calculator
+
+    def display_addition(self, *args) -> str:
+        total = str(self.calculator.add(*args))
+        args = [str(arg) for arg in args]
+
+        return f"{' + '.join(args)} = {total}"
+```
+
+Here is the spec, mocking the `Calculator`:
+
+```python
+from src.object_behavior import ObjectBehavior
+from examples.calculator import Calculator
+from examples.displayer import Displayer
+from src.prophepy import prophesize
+
+class DisplayerSpec(ObjectBehavior):
+    def _let(self):
+        self._describe(Displayer)
+        self.__calculator = prophesize(Calculator)
+        self._be_constructed_with(self.__calculator._reveal())
+
+    def it_displays_addition(self):
+        self.__calculator.add(2, 3)._will_return(5)
+        self.display_addition(2, 3)._should_be_like('2 + 3 = 5')
+```
+
 ## TODO
 
 - Add more matchers
-- Add prophecy behavior to easily mock collaborators
+- Prophepy: add a way to check prophecies (should_be_called)
 - Publish as a package
 - Make the tap output a stream as the spec say

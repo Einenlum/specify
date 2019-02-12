@@ -6,7 +6,7 @@ class ObjectBehavior:
         self.__obj = Subject(obj, self)
 
     def _be_constructed_with(self, *args, **kwargs):
-        self.__obj._get_value.__init__(*args, **kwargs)
+        self.__obj._get_value().__init__(*args, **kwargs)
 
     def _get_wrapped_object(self):
         return self.__obj
@@ -27,7 +27,6 @@ class ObjectBehavior:
                     )
                 return custom_matcher_wrapper
 
-        print(attr_name)
         def subject_wrapper(*args, **kwargs):
             return getattr(self.__obj, attr_name)(*args, **kwargs)
 
