@@ -1,30 +1,32 @@
+from .exceptions import MatcherError, MatcherNotFoundError
+
 def be(value, expected):
     if value is not expected:
-        raise Exception(f"Expected {value} to be {expected}")
+        raise MatcherError(f"Expected {value} to be {expected}")
 
     return value
 
 def be_like(value, expected):
     if value != expected:
-        raise Exception(f"Expected {value} to be like {expected}")
+        raise MatcherError(f"Expected {value} to be like {expected}")
 
     return value
 
 def not_be(value, not_expected):
     if value is not_expected:
-        raise Exception(f"Expected {value} not to be {not_expected}")
+        raise MatcherError(f"Expected {value} not to be {not_expected}")
 
     return value
 
 def not_be_like(value, not_expected):
     if value == not_expected:
-        raise Exception(f"Expected {value} not to be like {not_expected}")
+        raise MatcherError(f"Expected {value} not to be like {not_expected}")
 
     return value
 
 def be_an_instance_of(value, cls):
     if not isinstance(value, cls):
-        raise Exception(f"Expected {value} to be an instance of {cls.__qualname__}, got {type(value)}")
+        raise MatcherError(f"Expected {value} to be an instance of {cls.__qualname__}, got {type(value)}")
 
     return value
 
@@ -43,6 +45,6 @@ def get_matcher(type):
     }
 
     if type not in items:
-        raise Exception(f'No builtin matcher exists with type "{type}"')
+        raise MatcherNotFoundError(f'No builtin matcher exists with type "{type}"')
 
     return items[type]

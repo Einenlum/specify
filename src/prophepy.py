@@ -1,3 +1,5 @@
+from .exceptions import UndefinedMockBehaviorError
+
 def prophesize(cls):
     class AttributeProphecy:
         def __init__(self, mock, name, args, kwargs):
@@ -34,7 +36,7 @@ def prophesize(cls):
                         prophecy.called_times += 1
 
                         return prophecy.return_value
-                raise Exception('No return value was specified for this call')
+                raise UndefinedMockBehaviorError('No return value was specified for this call')
             return wrapper
         pass
 

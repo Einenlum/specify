@@ -1,4 +1,5 @@
 from .builtin_matchers import get_matcher
+from .exceptions import CustomMatcherError
 
 class Subject:
     def __init__(self, value, object_behavior):
@@ -10,7 +11,7 @@ class Subject:
 
     def match_with_custom_matcher(self, matcher_name, matcher, *args):
         if not matcher(self.__value, *args):
-            raise Exception(f'Custom matcher "{matcher_name}" failed.')
+            raise CustomMatcherError(f'Custom matcher "{matcher_name}" failed.')
 
         return self.__value
 
