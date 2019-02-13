@@ -128,5 +128,8 @@ class DisplayerSpec(ObjectBehavior):
 
 ## TODO
 
+- Handle attributes and not only methods
+- Import easily prophepy mocks (decorator?)
+- Find a way to easily mock internal calls
 - Add more matchers
 - Make the tap output a stream as the spec say
