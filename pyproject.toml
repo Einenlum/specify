@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "specify"
-version = "0.0.2"
+version = "0.0.3"
 description = "A spec tool to describe your classes"
 authors = ["Einenlum <yann.rabiller@gmail.com>"]
 license = "MIT"
@@ -14,7 +14,7 @@ classifiers = [
     "Topic :: Software Development :: Testing :: Mocking",
     "Topic :: Software Development :: Testing :: Unit"
 ]
-documentation = 'README.md'
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.7"
