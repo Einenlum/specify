@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "specify"
-version = "0.0.1"
+version = "0.0.2"
 description = "A spec tool to describe your classes"
 authors = ["Einenlum <yann.rabiller@gmail.com>"]
 license = "MIT"
