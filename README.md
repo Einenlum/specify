@@ -2,6 +2,10 @@
 
 A [PHPSpec](https://github.com/phpspec/phpspec)-like for Python. For fun only (for now). If you're looking for a real valid PHPSpec-like, you could check [flowp](http://pawelgalazka.github.io/flowp/testing.html) (but deprecated). [mamba](https://nestorsalceda.com/mamba/) could also interest you, even if it's not exactly what you are searching.
 
+## Install
+
+`pip install specify`
+
 ## Usage
 
 You can check the [examples](examples) folder.
@@ -19,7 +23,7 @@ class CalculatorSpec(ObjectBehavior):
         self.add(2, 3)._should_be(5)
 ```
 
-It will render a valid TAP output (hopefully).
+The command `python -m specify examples/spec/calculator_spec.py` will render a valid TAP output (hopefully).
 
 ```
 TAP version 13
@@ -30,7 +34,8 @@ ok 1 - CalculatorSpec: it adds the numbers
 
 To have a nice and pretty output, you can then use a TAP formatter like [faucet](https://www.npmjs.com/package/faucet).
 
-**All specifications should start by "it\_"**
+**All specifications must start by `it_`**
+**All spec files must end by `_spec` for now**
 
 ## Builtin matchers
 
