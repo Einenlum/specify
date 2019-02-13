@@ -34,8 +34,9 @@ ok 1 - CalculatorSpec: it adds the numbers
 
 To have a nice and pretty output, you can then use a TAP formatter like [faucet](https://www.npmjs.com/package/faucet).
 
-**All specifications must start by `it_`**
-**All spec files must end by `_spec` for now**
+- **All specifications must start by `it_`.**
+
+- **All spec files must end by `_spec` for now.**
 
 ## Builtin matchers
 
