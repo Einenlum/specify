@@ -81,7 +81,7 @@ All matchers (builtin and custom) are chainable. Example:
 
 ## Mocks
 
-Thanks to `prophepy` (did you get the pun with `prophecy`? Hoho), you can
+Thanks to [prophepy](https://github.com/Einenlum/prophepy) (did you get the pun with `prophecy`? Hoho), you can
 easily mock things in a [Prophecy](https://github.com/phpspec/prophecy) way.
 
 Given this `Displayer` class:
