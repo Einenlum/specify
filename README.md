@@ -45,7 +45,7 @@ To have a nice and pretty output, you can then use a TAP formatter like [faucet]
 
 You can implement a `_matchers` function in your spec, to add custom matchers.
 
-The key of the matcher is left trimmed by `should_` and the first argument
+The key of the matcher is left trimmed by `_should_` and the first argument
 passed to your function is the value itself.
 
 If you return false, the test will fail.
