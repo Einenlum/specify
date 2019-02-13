@@ -4,6 +4,17 @@ version = "0.0.1"
 description = "A spec tool to describe your classes"
 authors = ["Einenlum <yann.rabiller@gmail.com>"]
 license = "MIT"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Testing :: Acceptance",
+    "Topic :: Software Development :: Testing :: BDD",
+    "Topic :: Software Development :: Testing :: Mocking",
+    "Topic :: Software Development :: Testing :: Unit"
+]
+documentation = 'README.md'
 
 [tool.poetry.dependencies]
 python = "^3.7"
