@@ -6,7 +6,7 @@ class ObjectBehavior:
     '''
     def _describe(self, cls):
         '''
-        Needed first to tell spyec which class to spec
+        Needed first to tell specify which class to spec
         '''
         obj = cls.__new__(cls)
         self.__obj = Subject(obj, self)
