@@ -6,6 +6,3 @@ class CustomMatcherError(AssertionError):
 
 class MatcherNotFoundError(NotImplementedError):
     pass
-
-class UndefinedMockBehaviorError(Exception):
-    pass

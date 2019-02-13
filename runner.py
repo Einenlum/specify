@@ -1,6 +1,6 @@
 from typing import List
-from src.object_behavior import ObjectBehavior
-from src.result import Result, ResultLine
+from specify.object_behavior import ObjectBehavior
+from specify.result import Result, ResultLine
 
 def run_spec(spec_class: ObjectBehavior) -> List[ResultLine]:
     result_lines = []

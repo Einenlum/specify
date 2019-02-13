@@ -1,4 +1,4 @@
-from src.object_behavior import ObjectBehavior
+from specify.object_behavior import ObjectBehavior
 from examples.calculator import Calculator
 
 class CalculatorSpec(ObjectBehavior):

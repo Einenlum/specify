@@ -103,10 +103,10 @@ class Displayer:
 Here is the spec, mocking the `Calculator`:
 
 ```python
-from src.object_behavior import ObjectBehavior
+from specify import ObjectBehavior
 from examples.calculator import Calculator
 from examples.displayer import Displayer
-from src.prophepy import prophesize
+from prophepy import prophesize
 
 class DisplayerSpec(ObjectBehavior):
     def _let(self):
@@ -125,4 +125,3 @@ class DisplayerSpec(ObjectBehavior):
 - Add more matchers
 - Publish as a package
 - Make the tap output a stream as the spec say
-- Externalize prophepy

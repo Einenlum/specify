@@ -1,7 +1,7 @@
-from src.object_behavior import ObjectBehavior
+from specify.object_behavior import ObjectBehavior
 from examples.calculator import Calculator
 from examples.displayer import Displayer
-from src.prophepy import prophesize
+from prophepy import prophesize
 
 class DisplayerSpec(ObjectBehavior):
     def _let(self):
