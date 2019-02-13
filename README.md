@@ -129,5 +129,4 @@ class DisplayerSpec(ObjectBehavior):
 ## TODO
 
 - Add more matchers
-- Publish as a package
 - Make the tap output a stream as the spec say
