@@ -14,6 +14,8 @@ def run_spec(spec_class: ObjectBehavior) -> List[ResultLine]:
             getattr(spec, test)()
             for mock in spec._mocked_objects:
                 mock.check_prophecies()
+            for internal_mock in spec._mocked_internals:
+                internal_mock.leave_clean()
         except Exception as e:
             exception = str(e)
 

@@ -92,6 +92,8 @@ All matchers (builtin and custom) are chainable. Example:
 Thanks to [prophepy](https://github.com/Einenlum/prophepy) (did you get the pun with `prophecy`? Hoho), you can
 easily mock things in a [Prophecy](https://github.com/phpspec/prophecy) way.
 
+### Collaborators
+
 Given this `Displayer` class:
 
 ```python
@@ -131,9 +133,23 @@ class DisplayerSpec(ObjectBehavior):
 
 Easy peasy.
 
+### Internal calls to modules
+
+```python
+from specify import mock_internal
+
+# ...
+
+@mock_internal('getcwd', lambda : 'loremipsum', from_module='os')
+def it_displays_addition(self):
+    # ...
+    # getcwd() will return 'loremipsum' and will be go back to default after
+    the test
+```
+
 ## TODO
 
 - Handle attributes and not only methods
-- Find a way to easily mock internal calls
+- Improve the way interal calls are mocked
 - Make the tap output a stream as the spec say
 - Improve the shitty way specs are loaded for now (maybe use ast like [mamba](https://github.com/nestorsalceda/mamba/blob/8ec25de42171403a3ecf3db4c162053af058f6d7/mamba/example_collector.py#L54)?)

@@ -1,6 +1,6 @@
 from prophepy import Mock
 from .subject import Subject
-from .utils import reveal_if_needed, map_to_dict
+from .utils import reveal_if_needed, map_for_dict
 
 class ObjectBehavior:
     '''
@@ -8,6 +8,7 @@ class ObjectBehavior:
     '''
     def __init__(self):
         self._mocked_objects = []
+        self._mocked_internals = []
 
     def _describe(self, cls):
         '''
@@ -21,7 +22,7 @@ class ObjectBehavior:
         Launch the init method on the specced class with the provided arguments
         '''
         revealed_args = map(reveal_if_needed, args)
-        revealed_kwargs = map_to_dict(reveal_if_needed, kwargs)
+        revealed_kwargs = map_for_dict(reveal_if_needed, kwargs)
         self.__obj._get_value().__init__(*revealed_args, **revealed_kwargs)
 
     def _get_wrapped_object(self):
