@@ -135,3 +135,4 @@ class DisplayerSpec(ObjectBehavior):
 - Find a way to easily mock internal calls
 - Add more matchers
 - Make the tap output a stream as the spec say
+- Improve the shitty way specs are loaded for now
