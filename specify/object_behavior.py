@@ -1,9 +1,14 @@
+from prophepy import Mock
 from .subject import Subject
+from .utils import reveal_if_needed
 
 class ObjectBehavior:
     '''
     This is the class used as parent for every spec.
     '''
+    def __init__(self):
+        self._mocked_objects = []
+
     def _describe(self, cls):
         '''
         Needed first to tell specify which class to spec
@@ -15,7 +20,8 @@ class ObjectBehavior:
         '''
         Launch the init method on the specced class with the provided arguments
         '''
-        self.__obj._get_value().__init__(*args, **kwargs)
+        revealed_args = map(reveal_if_needed, args)
+        self.__obj._get_value().__init__(*revealed_args, **kwargs)
 
     def _get_wrapped_object(self):
         '''

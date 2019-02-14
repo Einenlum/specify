@@ -1,5 +1,7 @@
+from prophepy import Mock
 from .builtin_matchers import get_matcher
 from .exceptions import CustomMatcherError
+from .utils import map_for_dict, reveal_if_needed
 
 class Subject:
     '''
@@ -58,6 +60,9 @@ class Subject:
             return checker_wrapper
 
         def action_wrapper(*args, **kwargs):
+            args = map(reveal_if_needed, args)
+            kwargs = map_for_dict(reveal_if_needed, kwargs)
+
             return Subject(
                 getattr(self.__value, attr_name)(*args, **kwargs),
                 self.__object_behavior
