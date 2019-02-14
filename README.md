@@ -40,12 +40,14 @@ To have a nice and pretty output, you can then use a TAP formatter like [faucet]
 
 ## Builtin matchers
 
-- `_should_be` (check with `is`) (alias `_should_return`)
-- `_should_be_like` (check with `==`) (alias `_should_return_like`)
-- `_should_not_be` (check with `is not`) (alias `_should_not_return`)
-- `_should_not_be_like` (check with `!=`) (alias `_should_not_return_like`)
-- `_should_be_an_instance_of` (check with `isinstance`) (alias
-  `_should_return_an_instance_of`)
+| Matcher                     | Details                 | Alias                           |
+| --------------------------- | ----------------------- | ------------------------------- |
+| `_should_be`                | check with `is`         | `_should_return`                |
+| `_should_be_like`           | check with `==`         | `_should_return_like`           |
+| `_should_not_be`            | check with `is not`     | `_should_not_return`            |
+| `_should_not_be_like`       | check with `!=`         | `_should_not_return_like`       |
+| `_should_be_an_instance_of` | check with `isinstance` | `_should_return_an_instance_of` |
+| `_should_have_length`       | check with `len(x)`     |                                 |
 
 ## Custom matchers
 

@@ -30,6 +30,12 @@ def be_an_instance_of(value, cls):
 
     return value
 
+def have_length(value, length):
+    if len(value) != length:
+        raise MatcherError(f"Expected value length to be {length} but length is {len(value)}")
+
+    return value
+
 def get_matcher(type):
     items = {
         'be': be,
@@ -41,7 +47,8 @@ def get_matcher(type):
         'return_like': be_like,
         'not_return_like': not_be_like,
         'be_an_instance_of': be_an_instance_of,
-        'return_an_instance_of': be_an_instance_of
+        'return_an_instance_of': be_an_instance_of,
+        'have_length': have_length
     }
 
     if type not in items:
