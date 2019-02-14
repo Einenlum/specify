@@ -136,4 +136,4 @@ Easy peasy.
 - Handle attributes and not only methods
 - Find a way to easily mock internal calls
 - Make the tap output a stream as the spec say
-- Improve the shitty way specs are loaded for now
+- Improve the shitty way specs are loaded for now (maybe use ast like [mamba](https://github.com/nestorsalceda/mamba/blob/8ec25de42171403a3ecf3db4c162053af058f6d7/mamba/example_collector.py#L54)?
