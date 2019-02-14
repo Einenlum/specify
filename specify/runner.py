@@ -1,4 +1,5 @@
 from typing import List
+from prophepy import Mock
 from specify.object_behavior import ObjectBehavior
 from specify.result import Result, ResultLine
 
@@ -12,6 +13,10 @@ def run_spec(spec_class: ObjectBehavior) -> List[ResultLine]:
 
         try:
             getattr(spec, test)()
+            for attr in dir(spec):
+                value = getattr(spec, attr)
+                if isinstance(value, Mock):
+                    value.check_prophecies()
         except Exception as e:
             exception = str(e)
 
