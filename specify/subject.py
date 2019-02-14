@@ -50,8 +50,9 @@ class Subject:
             # builtin matcher
             matcher = get_matcher(matcher_type)
             def checker_wrapper(expected_value):
+                matcher(self.__value, expected_value)
                 return Subject(
-                    matcher(self.__value, expected_value),
+                    self.__value,
                     self.__object_behavior
                 )
             return checker_wrapper

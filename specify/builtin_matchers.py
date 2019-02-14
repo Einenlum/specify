@@ -4,37 +4,25 @@ def be(value, expected):
     if value is not expected:
         raise MatcherError(f"Expected {value} to be {expected}")
 
-    return value
-
 def be_like(value, expected):
     if value != expected:
         raise MatcherError(f"Expected {value} to be like {expected}")
-
-    return value
 
 def not_be(value, not_expected):
     if value is not_expected:
         raise MatcherError(f"Expected {value} not to be {not_expected}")
 
-    return value
-
 def not_be_like(value, not_expected):
     if value == not_expected:
         raise MatcherError(f"Expected {value} not to be like {not_expected}")
-
-    return value
 
 def be_an_instance_of(value, cls):
     if not isinstance(value, cls):
         raise MatcherError(f"Expected {value} to be an instance of {cls.__qualname__}, got {type(value)}")
 
-    return value
-
 def have_length(value, length):
     if len(value) != length:
         raise MatcherError(f"Expected value length to be {length} but length is {len(value)}")
-
-    return value
 
 def get_matcher(type):
     items = {
