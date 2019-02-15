@@ -143,8 +143,8 @@ from specify import mock_internal
 @mock_internal('getcwd', lambda : 'loremipsum', from_module='os')
 def it_displays_addition(self):
     # ...
-    # getcwd() will return 'loremipsum' and will be go back to default after
-    the test
+    # getcwd() will return 'loremipsum' and will be go back
+    # to default after the test
 ```
 
 ## TODO
